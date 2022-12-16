@@ -1,0 +1,6 @@
+/resources
+/node_modules
+*.json
+*.png
+*.jpg
+*.jpeg

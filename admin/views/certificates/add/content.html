@@ -1,0 +1,37 @@
+{{ define "content" }}
+<h2>
+  Create New Certificate!
+</h2>
+<hr>
+
+<form action="/admin/certificate/add" method="post" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label>Certificate Title</label>
+    <input type="text" name="cert-title" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Certificate Description</label>
+    <input type="text" name="cert-desc" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Certificate Picture</label>
+    <input type="file" name="cert-picture" class="form-control-file">
+  </div>
+
+  <div class="form-group">
+    <label>Filter</label>
+    <select name="cert-filter" class="form-control">
+      <option value="filter-success">filter-success</option>
+      <option value="filter-part">filter-part</option>
+      <option value="filter-web">filter-web</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-outline-success w-100 my-3">Save!</button>
+
+</form>
+
+{{ end }}

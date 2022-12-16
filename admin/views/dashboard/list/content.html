@@ -1,0 +1,37 @@
+{{ define "content" }}
+
+
+  <h2>
+    Github Repository!
+    <a href="/admin/new-repository" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i> New Repository!</a>
+  </h2>
+<hr>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Created Date</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ range $index, $value := .Repos }}
+    <tr>
+      <th scope="row">{{ $value.ID }}</th>
+      <td>{{ $value.Title }}</td>
+      <td>{{ $value.Description }}</td>
+      <td>{{ $value.CreatedAt }}</td>
+      <td>
+        <a href="/admin/edit/{{ $value.ID }}" class="btn btn-outline-warning"><i class="fa fa-pen"></i></a>
+        <a href="/admin/delete/{{ $value.ID }}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+    {{ end }}
+    </tbody>
+  </table>
+
+
+{{ end }}
