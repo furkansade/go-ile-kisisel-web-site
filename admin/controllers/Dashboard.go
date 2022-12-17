@@ -19,6 +19,8 @@ func (dashboard Dashboard) Index(w http.ResponseWriter, r *http.Request, params 
 	}
 	data := make(map[string]interface{})
 	data["Repos"] = models.Repo{}.GetAll()
+	data["Alert"] = helpers.GetAlert(w, r)
+	// data["message"] = "Listelendi!"
 	view.ExecuteTemplate(w, "index", data)
 }
 
@@ -53,6 +55,7 @@ func (dashboard Dashboard) Add(w http.ResponseWriter, r *http.Request, params ht
 func (dashboard Dashboard) Delete(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
 	repo := models.Repo{}.Get(params.ByName("id"))
 	repo.Delete()
+	// helpers.SetAlert(w, r, "Sertifika silindi!")
 	http.Redirect(w, r, "/admin", http.StatusSeeOther)
 }
 
