@@ -22,7 +22,7 @@
     {{ range $index, $value := .Certificates }}
     <tr>
       <th scope="row">{{ $value.ID }}</th>
-      <td><img width="80px" src="{{ $value.Picture_url }}" alt=""></td>
+      <td><img width="80px" src="/{{ $value.Picture_url }}" alt=""></td>
       <td>{{ $value.Title }}</td>
       <td>{{ $value.Description }}</td>
       <td>{{ $value.Filter }}</td>
